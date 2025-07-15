@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Est-ce que ma boîte fait bientôt faillite ?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #222;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1rem;
+      width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    #response {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Est-ce que ma boîte fait bientôt faillite ?</h1>
+  <input type="text" id="companyName" placeholder="Nom de votre entreprise">
+  <button onclick="checkCompany()">Vérifier</button>
+
+  <div id="response"></div>
+
+  <script>
+    const listA = [
+      "Oui.",
+      "Évidemment.",
+      "Elle existe encore ?!", 
+      "Prépare ton CV.",
+      "Courage, c'est bientôt fini.",
+      "LOL, clairement oui."
+    ];
+
+    const listB = [
+      "Non.",
+      "Pas de risque.",
+      "Peu de chance.",
+      "Trop solide pour ça.",
+      "Respire, tout va bien.",
+      "Ce n'est pas demain la veille."
+    ];
+
+    function checkCompany() {
+      const name = document.getElementById("companyName").value.trim().toLowerCase();
+      const response = document.getElementById("response");
+
+      const isSolydera = name === "solydera" || name === "solydera sa" || name === "solydera s.a.";
+
+      const list = isSolydera ? listA : listB;
+      const randomIndex = Math.floor(Math.random() * list.length);
+
+      response.textContent = list[randomIndex];
+    }
+  </script>
+</body>
+</html>
