@@ -32,6 +32,14 @@
       font-weight: bold;
       color: #444;
     }
+    #gif {
+      margin-top: 20px;
+      display: none;
+    }
+    #gif img {
+      width: 300px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -40,6 +48,9 @@
   <button onclick="checkCompany()">Vérifier</button>
 
   <div id="response"></div>
+  <div id="gif">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmN3ZWZ4eTg3MWp2cTRuZ21qaXlmMGRqZHg2aXN2OWRzaDJkZjFzZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/a5viI92PAF89q/giphy.gif" alt="Explosion gif">
+  </div>
 
   <script>
     const listA = [
@@ -63,6 +74,7 @@
     function checkCompany() {
       const name = document.getElementById("companyName").value.trim().toLowerCase();
       const response = document.getElementById("response");
+      const gif = document.getElementById("gif");
 
       const isSolydera = name === "solydera" || name === "solydera sa" || name === "solydera s.a.";
 
@@ -70,6 +82,7 @@
       const randomIndex = Math.floor(Math.random() * list.length);
 
       response.textContent = list[randomIndex];
+      gif.style.display = isSolydera ? "block" : "none";
     }
   </script>
 </body>
